@@ -5,6 +5,8 @@
 - 標註工具：`label_tool/` 與 `refine_tool/`
 - 資料前處理：根目錄下的計算、轉換與分析腳本
 
+如果你是第一次打開這個專案，建議先看下面的「快速開始」，再決定要跑標註工具還是後處理腳本。
+
 ## 專案結構
 
 ```text
@@ -46,6 +48,14 @@ uv sync --no-install-project
 uv venv .venv
 uv pip install -r requirements.txt -p .venv/bin/python
 ```
+
+如果你已經完成前面的安裝，後續只要在專案根目錄執行 `uv sync --no-install-project` 即可恢復環境。
+
+## 快速開始
+
+1. 安裝依賴。
+2. 進入 `label_tool/` 執行 `python start.py` 開啟標註介面。
+3. 如果要產出已標註 scenario 的影片，執行 `python scenario_video_export/generate_labeled_videos.py`。
 
 ## 執行標註工具
 
@@ -92,6 +102,12 @@ python calculate_pet.py
 - `data/pet_result.json`
 
 這些檔案建議保留在本機資料夾，讓別人下載 repo 後再自行生成。
+
+## 常見輸出
+
+- 標註結果會寫回 `data/labeled_scenarios.json`。
+- 距離與 PET 的中繼結果會由前處理腳本產生。
+- `scenario_video_export/` 會把已標註 pair 轉成 mp4，方便複核與展示。
 
 ## 依賴
 
