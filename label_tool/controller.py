@@ -21,7 +21,7 @@ class MainWindow_controller(QMainWindow):
             self.setStyleSheet("QToolTip { font-size: 24pt; }")
 
 
-        self.data_path = "../data"
+        self.data_path = os.environ.get("LABEL_HETROD_DATA_DIR", "../data")
         
 
         # we load the dict for ego id and object id list
