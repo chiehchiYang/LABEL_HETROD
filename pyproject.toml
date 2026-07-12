@@ -1,0 +1,21 @@
+[project]
+name = "label-hetrod"
+version = "0.1.0"
+description = "Traffic scene interaction labeling and preprocessing tools"
+requires-python = ">=3.13"
+dependencies = [
+  "PyQt6==6.7.1",
+  "opencv-python-headless==4.12.0.88",
+  "numpy==2.2.6",
+  "ujson==5.10.0",
+  "superqt==0.7.6",
+  "qtpy==2.4.3",
+  "imageio==2.37.0",
+  "pandas>=2.2",
+  "matplotlib>=3.9",
+  "tqdm>=4.66",
+]
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
