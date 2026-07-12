@@ -4,6 +4,7 @@
 
 - 標註工具：`label_tool/` 與 `refine_tool/`
 - 資料前處理：根目錄下的計算、轉換與分析腳本
+- GitHub 範例資料：`sample_data/` 裡放的是可公開的最小 sample data
 
 如果你是第一次打開這個專案，建議先看下面的「快速開始」，再決定要跑標註工具還是後處理腳本。
 
@@ -14,7 +15,8 @@ Label_HetroD/
 ├── label_tool/          # 主要標註工具
 ├── refine_tool/         # 另一份標註工具版本
 ├── scenario_video_export/ # 已標註 scenario 匯出成影片的後處理腳本
-├── data/                # 原始資料與前處理輸出
+├── sample_data/         # 最小可公開 sample data
+├── data/                # 本機實際資料與前處理輸出
 ├── preprocess_label.py  # 產生 trackid_class.json
 ├── calculate_distance.py # 計算最短距離
 ├── calculate_pet.py      # 計算 PET
@@ -26,6 +28,8 @@ Label_HetroD/
 `label_tool/` 與 `refine_tool/` 目前結構幾乎相同，保留兩份是為了支援不同工作流程或作為備份版本。若你之後只想維護一個主版本，可以再進一步把共用邏輯抽出去。
 
 另外，`scenario_video_export/generate_labeled_videos.py` 是一支後處理腳本，會把已標註的 scenario 轉成影片，方便複核與展示。
+
+`sample_data/` 則是給 GitHub 預覽和快速示範用的最小資料集。你可以先跑 `python prepare_sample_data.py`，把這份 sample 複製到本機的 `data/`，再啟動標註工具。
 
 ## label_tool 與 refine_tool 的差異
 
@@ -54,8 +58,9 @@ uv pip install -r requirements.txt -p .venv/bin/python
 ## 快速開始
 
 1. 安裝依賴。
-2. 進入 `label_tool/` 執行 `python start.py` 開啟標註介面。
-3. 如果要產出已標註 scenario 的影片，執行 `python scenario_video_export/generate_labeled_videos.py`。
+2. 執行 `python prepare_sample_data.py`，把 sample data 複製到本機 `data/`。
+3. 進入 `label_tool/` 執行 `python start.py` 開啟標註介面。
+4. 如果要產出已標註 scenario 的影片，執行 `python scenario_video_export/generate_labeled_videos.py`。
 
 ## 執行標註工具
 
@@ -75,7 +80,7 @@ python start.py --ui ipad
 
 ## 資料需求
 
-標註工具會使用 `data/` 內的中繼資料，常見必要檔案包含：
+標註工具會使用本機 `data/` 內的中繼資料，常見必要檔案包含：
 
 - `data/00_background.png`
 - `data/track_frame_dict.json`
@@ -102,6 +107,8 @@ python calculate_pet.py
 - `data/pet_result.json`
 
 這些檔案建議保留在本機資料夾，讓別人下載 repo 後再自行生成。
+
+如果你只想先看範例，GitHub 上的 `sample_data/` 就是一份只有一到兩筆資料的最小版本。
 
 ## 常見輸出
 
