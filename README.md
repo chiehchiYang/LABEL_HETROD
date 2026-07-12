@@ -8,6 +8,12 @@
 
 如果你是第一次打開這個專案，建議先看下面的「快速開始」，再決定要跑標註工具還是後處理腳本。
 
+## Demo
+
+[![GUI 截圖](img/img.png)](img/demo.mp4)
+
+點上面的圖片可以直接開啟 demo video：`img/demo.mp4`。
+
 ## 專案結構
 
 ```text
@@ -30,6 +36,8 @@ Label_HetroD/
 另外，`scenario_video_export/generate_labeled_videos.py` 是一支後處理腳本，會把已標註的 scenario 轉成影片，方便複核與展示。
 
 `sample_data/` 則是給 GitHub 預覽和快速示範用的最小資料集。你可以先跑 `python prepare_sample_data.py`，把這份 sample 複製到本機的 `data/`，再啟動標註工具。
+
+`uv run python start.py` 預設會讀本機 `data/`。如果你只想跑 sample，再加 `--sample-data`。
 
 ## label_tool 與 refine_tool 的差異
 
@@ -58,8 +66,8 @@ uv pip install -r requirements.txt -p .venv/bin/python
 ## 快速開始
 
 1. 安裝依賴。
-2. 執行 `python prepare_sample_data.py`，把 sample data 複製到本機 `data/`。
-3. 進入 `label_tool/` 執行 `python start.py` 開啟標註介面。
+2. 進入 `label_tool/` 執行 `python start.py` 開啟標註介面。
+3. 如果要跑 sample，執行 `uv run python start.py --sample-data`。
 4. 如果要產出已標註 scenario 的影片，執行 `python scenario_video_export/generate_labeled_videos.py`。
 
 ## 執行標註工具
